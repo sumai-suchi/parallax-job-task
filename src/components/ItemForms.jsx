@@ -33,8 +33,9 @@ export default function ItemForm() {
     },
     body: JSON.stringify(items),
   });
-
-  console.log(response);
+    
+  const data = await response.json()
+  console.log(data);
 
 
   };
