@@ -7,8 +7,12 @@ export async function POST(request) {
   const  total = items.reduce((sum ,item)=> sum + item.price ,0)
   console.log (total)
 
+  const mostExpensiveItem = items.reduce((max, item) => item.price > max.price ? item : max, items[0]);
+  console.log(mostExpensiveItem)
+
   return Response.json({
     message: "Data received successfully!",
-    total: total
+    total: total,
+    mostExpensiveItem: mostExpensiveItem
   });
 }
