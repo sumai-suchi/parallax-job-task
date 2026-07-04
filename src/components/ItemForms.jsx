@@ -23,7 +23,7 @@ export default function ItemForm() {
       };
     });
 
-    console.log(items);
+    // console.log(items);
 
 
   const response = await fetch("/api/items", {
@@ -35,7 +35,9 @@ export default function ItemForm() {
   });
     
   const data = await response.json()
-  console.log(data);
+//   console.log(data);
+
+  setResult(data);
 
 
   };
@@ -65,11 +67,11 @@ export default function ItemForm() {
         <div className="mt-6 border-t pt-4">
           <h2 className="font-bold">Result</h2>
 
-          <p>Total: {result.total}</p>
+          <p>Total: {result?.total}</p>
 
           <p>
-            Most Expensive: {result.mostExpensive.name} ($
-            {result.mostExpensive.price})
+            Most Expensive: {result?.mostExpensiveItem?.name} (
+            {result?.mostExpensiveItem?.price})
           </p>
         </div>
       )}
