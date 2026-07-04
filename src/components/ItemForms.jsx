@@ -6,7 +6,7 @@ export default function ItemForm() {
   const [text, setText] = useState("");
   const [result, setResult] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     console.log(text);
@@ -24,6 +24,17 @@ export default function ItemForm() {
     });
 
     console.log(items);
+
+
+  const response = await fetch("/api/items", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(items),
+  });
+
+  console.log(response);
 
 
   };
