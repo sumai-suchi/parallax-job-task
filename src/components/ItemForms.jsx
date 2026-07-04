@@ -11,8 +11,21 @@ export default function ItemForm() {
 
     console.log(text);
 
-    // পরে এখানে API call করব
-    // setResult(data);
+    const items = text
+    .trim()
+    .split("\n")
+    .map((line) => {
+      const [name, price] = line.split(",");
+
+      return {
+        name: name.trim(),
+        price: Number(price),
+      };
+    });
+
+    console.log(items);
+
+
   };
 
   return (
